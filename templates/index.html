@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="page" lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кошачья галерея</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+<body class="page__body">
+<div class="page__container">
+    <header>
+        <div>
+            <p>Логотип</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="main__container">
+            {% block content %}
+            <h1>Здесь будут картинки</h1>
+            <div class="main__card">
+                <img class="main__image" src="{{url_for('static', filename='/cats/1687456031_zhivotnye-9.jpg')}}">
+                <p>Голосов: 100</p>
+                <div class="main__button_container">
+                    <button class="main__button">-1</button>
+                    <button class="main__button">+1</button>
+                </div>
+            </div>
+            <div class="main__card">
+                <img class="main__image" src="{{url_for('static', filename='/cats/1687456031_zhivotnye-9.jpg')}}">
+            </div>
+            <div class="main__card">
+                <img class="main__image" src="{{url_for('static', filename='/cats/1687456031_zhivotnye-9.jpg')}}">
+            </div>
+            {% endblock content %}
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p>Контактная информация</p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

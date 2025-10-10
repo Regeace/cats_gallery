@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.page {
+    height: 100%;
+}
+
+.page__body {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-width: 1200px;
+    max-width: 1500px;
+    min-height: 100%;
+    font-family: arial;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.page__container {
+    padding: 10px;
+    background-color: #eaeaea;
+}
+
+.page a {
+    text-decoration: none;
+}
+
+.main {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+}
+
+.main__card {
+    min-width: 300px;
+    padding: 10px;
+}
+
+.main__image {
+    max-width: 380px;
+    object-fit: contain;
+}
+
+.main__button_container .main__button:first-of-type {
+    margin-right: 30px;
+}
+
+.main__button {
+    padding: 10px 30px;
+}
+
