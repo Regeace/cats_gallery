@@ -1,10 +1,20 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div>
-    <h1>Коты</h1>
-    <!--    <div class="cats">-->
 
-    <!--    </div>-->
+{% for key, value in context.items() %}
+{% if value[0] == leader_score %}
+<div class="main__card leader" id="{{key}}">
+{% else %}
+<div class="main__card" id="{{key}}">
+{% endif %}
+    <img class="main__image" src="{{url_for('static', filename=value[1])}}">
+    <p>Голосов: {{value[0]}}</p>
+    <div class="main__button_container">
+        <button class="main__button">-1</button>
+        <button class="main__button">+1</button>
+    </div>
 </div>
+{% endfor %}
+
 {% endblock content %}
