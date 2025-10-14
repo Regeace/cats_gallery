@@ -2,14 +2,14 @@
 
 {% block content %}
 
-{% for key, value in context.items() %}
-{% if value[0] == leader_score %}
-<div class="main__card leader" id="{{key}}">
+{% for card in context %}
+{% if card[2] == leader_score %}
+<div class="main__card leader" id="{{card[0]}}">
 {% else %}
-<div class="main__card" id="{{key}}">
+<div class="main__card" id="{{card[0]}}">
 {% endif %}
-    <img class="main__image" src="{{url_for('static', filename=value[1])}}">
-    <p>Голосов: {{value[0]}}</p>
+    <img class="main__image" src="{{url_for('static', filename=card[1])}}">
+    <p>Голосов: {{card[2]}}</p>
     <div class="main__button_container">
         <button class="main__button">-1</button>
         <button class="main__button">+1</button>

@@ -1,12 +1,14 @@
 from flask import Flask, render_template
-from utils import *
+from utils import form_contex
 
 app = Flask(__name__)
 
 
-def form_contex(data: dict):
-    context = data
-    return context
+# def form_contex(data: dict):
+#     context = data
+#     return context
+# leader_score = max(context.values())[0]
+
 
 @app.route('/index')
 def index():
@@ -17,8 +19,8 @@ def index():
 @app.route('/cats')
 def cats():
     """Базовая страница галереи с наполнением из различных баз данных."""
-    context = form_contex(CATS_DB)
-    leader_score = max(context.values())[0]
+    context = form_contex('cats.db', 'cats_db')
+    leader_score = max([int(i[2]) for i in context])
     return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
 
 
