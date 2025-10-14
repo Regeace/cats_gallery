@@ -6,7 +6,3 @@ CATS_DB = {
     '5': [1, '/cats/1687530059_kotiki-16.jpg'],
     '6': [1, '/cats/1689607933_koshki-23.jpg']
 }
-
-
-# leader_score = max(CATS_DB.values())[0]
-# print(leader_score)
