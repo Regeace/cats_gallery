@@ -23,9 +23,19 @@ def form_contex(db_filename: str, db_name: str):
     result_proxy = connection.execute(query)
     result_set = result_proxy.fetchall()
 
-    return result_set
+    return result_set, connection, cats
 
 
+# data, conn, cats_db = form_contex('cats.db', 'cats_db')
+
+def update_score(database, db_id, connection_object):
+    update_query = db.update(database).where(database.columns.id == db_id).values(score=database.columns.score + 1)
+    connection_object.execute(update_query)
+    connection_object.commit()
+
+# update_score(cats_db, 1)
+
+# print(data, conn, cats_db)
 # context = form_contex('cats.db', 'cats_db')
 # leader_score = max([int(i[2]) for i in context])
 # print(leader_score)

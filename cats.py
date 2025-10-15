@@ -19,9 +19,9 @@ def index():
 @app.route('/cats')
 def cats():
     """Базовая страница галереи с наполнением из различных баз данных."""
-    context = form_contex('cats.db', 'cats_db')
+    context, connection, db_object = form_contex('cats.db', 'cats_db')
     leader_score = max([int(i[2]) for i in context])
     return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
 
-
-app.run(host='localhost', port=8000)
+if __name__ == '__main__':
+    app.run(host='localhost', port=8000)
