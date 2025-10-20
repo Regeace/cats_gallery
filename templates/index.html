@@ -5,40 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Кошачья галерея</title>
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
-<!--    <script>-->
-<!--    document.addEventListener('DOMContentLoaded', () => {-->
-<!--        longPoll();-->
-<!--    });-->
-
-<!--    async function sendMessage() {-->
-<!--        const msgInput = document.getElementById('msg');-->
-<!--        const message = msgInput.value.trim();-->
-<!--        if (!message) return;-->
-<!--        await fetch('/send_message', {-->
-<!--            method: 'POST',-->
-<!--            headers: {'Content-Type': 'application/json'},-->
-<!--            body: JSON.stringify({message: message})-->
-<!--        });-->
-<!--        msgInput.value = '';-->
-<!--    }-->
-
-<!--    async function longPoll() {-->
-<!--        try {-->
-<!--            const res = await fetch('/get_messages');-->
-<!--            const msgs = await res.json();-->
-<!--            if (msgs.length > 0) {-->
-<!--                const chatbox = document.getElementById('chatbox');-->
-<!--                msgs.forEach(m => {-->
-<!--                    chatbox.innerHTML += `${m.message}<br>`;-->
-<!--                });-->
-<!--                chatbox.scrollTop = chatbox.scrollHeight;-->
-<!--            }-->
-<!--        } catch(e) {-->
-<!--            console.error('Long poll error:', e);-->
-<!--        }-->
-<!--        setTimeout(longPoll, 100);-->
-<!--    }-->
-<!--</script>-->
 </head>
 
 <body class="page__body">
@@ -85,6 +51,6 @@
     </footer>
 </div>
 
-<script src="{{url_for('static', filename='modal.js')}}"></script>
+<script src="{{url_for('static', filename='comment.js')}}"></script>
 </body>
 </html>

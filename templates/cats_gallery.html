@@ -5,21 +5,24 @@
 {% for card in context %}
 {% if card[2] == leader_score %}
 <div class="main__card leader" id="{{card[0]}}">
-{% else %}
-<div class="main__card" id="{{card[0]}}">
-{% endif %}
-    <img class="main__image" src="{{url_for('static', filename=card[1])}}">
-    <p>Голосов: {{card[2]}}</p>
-    <div class="main__button_container">
-        <button class="main__button main__button_decrease_score" type="button">-1</button>
-        <button class="main__button" onclick="sendIncreaseScore()">+1</button>
+    {% else %}
+    <div class="main__card" id="{{card[0]}}">
+        {% endif %}
+        <img class="main__image" src="{{url_for('static', filename=card[1])}}">
+        <p>Голосов: {{card[2]}}</p>
+        <div class="main__button_container">
+            <button class="main__button main__button_decrease_score" type="button">-1</button>
+            <button class="main__button main__button_increase_score" type="submit"
+                    onkeydown="if(event.key==='Enter') sendIncreaseScore();" onclick="sendIncreaseScore()">+1
+            </button>
+        </div>
+        <div class="main__сard_comments_container">
+            <div class="main__сard_comments"></div>
+            <input type="text" class="main__сard_comment" autocomplete="off"
+                   onkeydown="if(event.key==='Enter') sendComment();">
+            <button class="main__сard_send_comment" onclick="sendComment()">Добавить комментарий</button>
+        </div>
     </div>
-    <div class="main__сard_comments_container">
-        <div class="main__сard_comments"></div>
-        <input type="text" id="msg" autocomplete="off" onkeydown="if(event.key==='Enter') sendComment();">
-        <button class="main__сard_send_comment" onclick="sendComment()">Добавить комментарий</button>
-    </div>
-</div>
-{% endfor %}
+    {% endfor %}
 
-{% endblock content %}
+    {% endblock content %}

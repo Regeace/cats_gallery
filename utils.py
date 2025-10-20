@@ -1,5 +1,7 @@
 import sqlalchemy as db
 
+NO_CONTENT = 204
+
 
 # engine = db.create_engine('sqlite:///cats.db')
 # connection = engine.connect()
