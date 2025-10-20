@@ -16,7 +16,7 @@ def index():
     return render_template(template_name_or_list='index.html')
 
 
-@app.route('/cats')
+@app.route('/')
 def cats():
     """Базовая страница галереи с наполнением из различных баз данных."""
     context, connection, db_object = form_contex('cats.db', 'cats_db')

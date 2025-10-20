@@ -5,14 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Кошачья галерея</title>
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+<!--    <script>-->
+<!--    document.addEventListener('DOMContentLoaded', () => {-->
+<!--        longPoll();-->
+<!--    });-->
+
+<!--    async function sendMessage() {-->
+<!--        const msgInput = document.getElementById('msg');-->
+<!--        const message = msgInput.value.trim();-->
+<!--        if (!message) return;-->
+<!--        await fetch('/send_message', {-->
+<!--            method: 'POST',-->
+<!--            headers: {'Content-Type': 'application/json'},-->
+<!--            body: JSON.stringify({message: message})-->
+<!--        });-->
+<!--        msgInput.value = '';-->
+<!--    }-->
+
+<!--    async function longPoll() {-->
+<!--        try {-->
+<!--            const res = await fetch('/get_messages');-->
+<!--            const msgs = await res.json();-->
+<!--            if (msgs.length > 0) {-->
+<!--                const chatbox = document.getElementById('chatbox');-->
+<!--                msgs.forEach(m => {-->
+<!--                    chatbox.innerHTML += `${m.message}<br>`;-->
+<!--                });-->
+<!--                chatbox.scrollTop = chatbox.scrollHeight;-->
+<!--            }-->
+<!--        } catch(e) {-->
+<!--            console.error('Long poll error:', e);-->
+<!--        }-->
+<!--        setTimeout(longPoll, 100);-->
+<!--    }-->
+<!--</script>-->
 </head>
 
 <body class="page__body">
 <div class="page__container">
-    <header>
-        <div>
-            <p>Логотип</p>
-        </div>
+    <header class="page__header">
+        <img class="page__logo" src="{{url_for('static', filename='logo_cat.jpg')}}" height="60" width="60" alt="Логотип сайта. Кот">
     </header>
 
     <main class="main">
@@ -26,6 +58,11 @@
                     <button class="main__button">-1</button>
                     <button class="main__button">+1</button>
                 </div>
+                <div class="main__сard_comments_container">
+                    <div class="main__сard_comments"></div>
+                    <input type="text" id="msg" autocomplete="off" onkeydown="if(event.key==='Enter') sendMessage();">
+                    <button class="main__сard_send_comment" onclick="sendMessage()">Добавить комментарий</button>
+                </div>
             </div>
             <div class="main__card">
                 <img class="main__image" src="{{url_for('static', filename='/cats/1687456031_zhivotnye-9.jpg')}}">
@@ -35,13 +72,19 @@
             </div>
             {% endblock content %}
         </div>
+
+        <div class="main__modal_decrease_score">
+            <img class="main__modal_img" src="{{url_for('static', filename='cat_decrease_score.jpg')}}" height="746" width="640" alt="Недовольный кот. Нельзя снижать рейтинг">
+            <p>Это кто тут не любит котиков?</p>
+            <p>А теперь погладь меня</p>
+        </div>
     </main>
 
-    <footer>
-        <div>
-            <p>Контактная информация</p>
-        </div>
+    <footer class="page__footer">
+        <a class="page__footer_link" href="https://github.com/Regeace/cats_gallery">Проект котогалереи на github</a>
     </footer>
 </div>
+
+<script src="{{url_for('static', filename='modal.js')}}"></script>
 </body>
 </html>
