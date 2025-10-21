@@ -9,7 +9,7 @@
     <div class="main__card" id="{{card[0]}}">
         {% endif %}
         <img class="main__image" src="{{url_for('static', filename=card[1])}}">
-        <p>Голосов: {{card[2]}}</p>
+        <p class="main__score">Голосов: <span class="main__score_value">{{card[2]}}</span></p>
         <div class="main__button_container">
             <button class="main__button main__button_decrease_score" type="button">-1</button>
             <button class="main__button main__button_increase_score" type="submit"

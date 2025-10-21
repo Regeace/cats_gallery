@@ -1,4 +1,5 @@
 import sqlalchemy as db
+from flask import redirect
 
 NO_CONTENT = 204
 
@@ -30,8 +31,8 @@ def form_contex(db_filename: str, db_name: str):
 
 # data, conn, cats_db = form_contex('cats.db', 'cats_db')
 
-def update_score(database, db_id, connection_object):
-    update_query = db.update(database).where(database.columns.id == db_id).values(score=database.columns.score + 1)
+def update_score(database, db_id, connection_object, increment):
+    update_query = db.update(database).where(database.columns.id == db_id).values(score=database.columns.score + increment)
     connection_object.execute(update_query)
     connection_object.commit()
 

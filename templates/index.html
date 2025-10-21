@@ -26,8 +26,8 @@
                 </div>
                 <div class="main__сard_comments_container">
                     <div class="main__сard_comments"></div>
-                    <input type="text" id="msg" autocomplete="off" onkeydown="if(event.key==='Enter') sendMessage();">
-                    <button class="main__сard_send_comment" onclick="sendMessage()">Добавить комментарий</button>
+                    <input type="text">
+                    <button class="main__сard_send_comment">Добавить комментарий</button>
                 </div>
             </div>
             <div class="main__card">
@@ -51,6 +51,6 @@
     </footer>
 </div>
 
-<script src="{{url_for('static', filename='comment.js')}}"></script>
+<script src="{{url_for('static', filename='scripts.js')}}"></script>
 </body>
 </html>

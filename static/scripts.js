@@ -22,9 +22,16 @@ async function sendIncreaseScore() {
     const scoreButtons = Array.from(document.querySelectorAll('.main__button_increase_score'));
     [].forEach.call(scoreButtons, function(element) {
         element.onclick = function () {
+            // Находим id карточки
             const score_increment = element.innerText;
             const element_with_id = element.closest('.main__card');
             const id = element_with_id.id
+            // Находим значение рейтинга, увеличиваем и заменяем на текущей странице
+            const score_element = element_with_id.querySelector('.main__score_value')
+            scoreValue = score_element.textContent
+            scoreValue++
+            score_element.textContent = scoreValue
+            // Отправляем увеличение рейтинга в базу данных на сервер
             fetch('/change_score', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
