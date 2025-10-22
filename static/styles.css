@@ -24,7 +24,7 @@
     flex-direction: column;
     margin: 0 auto;
     min-width: 1200px;
-    max-width: 1500px;
+    max-width: 1600px;
     min-height: 100%;
     font-family: arial;
     font-size: 14px;
@@ -127,12 +127,13 @@
 .main__сard_comments {
     padding: 5px 10px;
     margin: 10px;
-    height: 50px;
+    height: 60px;
     min-width: 100%;
     border: 1px solid #aaaaaa;
     overflow-y: scroll;
     border-radius: 3px;
     background-color: #daebed;
+    text-align: left;
 }
 
 .main__сard_comment_input {
@@ -170,7 +171,7 @@
     background-color: white;
     border-radius: 5px;
     top: 80px;
-    left: calc(50vw - 340px);
+    left: calc(100vw / 2 - 340px);
 }
 
 .page__footer {
