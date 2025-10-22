@@ -5,24 +5,24 @@
 {% for card in context %}
 {% if card[2] == leader_score %}
 <div class="main__card leader" id="{{card[0]}}">
-    {% else %}
-    <div class="main__card" id="{{card[0]}}">
-        {% endif %}
-        <img class="main__image" src="{{url_for('static', filename=card[1])}}">
-        <p class="main__score">Голосов: <span class="main__score_value">{{card[2]}}</span></p>
-        <div class="main__button_container">
-            <button class="main__button main__button_decrease_score" type="button">-1</button>
-            <button class="main__button main__button_increase_score" type="submit"
-                    onkeydown="if(event.key==='Enter') sendIncreaseScore();" onclick="sendIncreaseScore()">+1
-            </button>
-        </div>
-        <div class="main__сard_comments_container">
-            <div class="main__сard_comments"></div>
-            <input type="text" class="main__сard_comment" autocomplete="off"
-                   onkeydown="if(event.key==='Enter') sendComment();">
-            <button class="main__сard_send_comment" onclick="sendComment()">Добавить комментарий</button>
-        </div>
+{% else %}
+<div class="main__card" id="{{card[0]}}">
+{% endif %}
+    <img class="main__image" src="{{url_for('static', filename=card[1])}}">
+    <p class="main__score">Конкурсант <b>{{card[0]}}</b>   Голосов: <b class="main__score_value">{{card[2]}}</b></p>
+    <div class="main__button_container">
+        <button class="main__button main__button_decrease_score" type="button">-1</button>
+        <button class="main__button main__button_increase_score" type="submit"
+                onkeydown="if(event.key==='Enter') sendIncreaseScore();" onclick="sendIncreaseScore()">+1
+        </button>
     </div>
-    {% endfor %}
+    <div class="main__сard_comments_container">
+        <div class="main__сard_comments"></div>
+        <input type="text" class="main__сard_comment_input" placeholder="Ваш положительный 30-значный отзыв" autocomplete="off"
+               maxlength="30" onkeydown="if(event.key==='Enter') sendComment();">
+        <button class="main__сard_send_comment" onclick="sendComment()">Добавить комментарий</button>
+    </div>
+</div>
+{% endfor %}
 
-    {% endblock content %}
+{% endblock content %}
