@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 from utils import *
 
 app = Flask(__name__)
@@ -14,12 +14,29 @@ def index():
 
 @app.route('/')
 def cats():
-    """Базовая страница галереи с наполнением из различных баз данных."""
+    """Базовая страница галереи с наполнением из базы данных."""
     global context, connection, db_object, leader_score
     context, connection, db_object = form_contex('cats.db', 'cats_db')
     leader_score = max([int(i[2]) for i in context])
     return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
 
+
+# @app.route('/ii')
+# def cats():
+#     """Дополнительная страница галереи с наполнением из базы данных."""
+#     global context, connection, db_object, leader_score
+#     context, connection, db_object = form_contex('cats.db', 'ii_db')
+#     leader_score = max([int(i[2]) for i in context])
+#     return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
+#
+
+# @app.route('/cats_voted')
+# def cats():
+#     """Страница галереи с завершённым голосованием с наполнением из базы данных."""
+#     global context, connection, db_object, leader_score
+#     context, connection, db_object = form_contex('cats.db', 'cats_voted_db')
+#     leader_score = max([int(i[2]) for i in context])
+#     return render_template(template_name_or_list='archive_gallery.html', context=context, leader_score=leader_score)
 
 @app.route('/change_score', methods=['POST'])
 def change_score():
