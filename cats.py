@@ -54,7 +54,6 @@ def send_comment():
     comment = data.get('comment', '').strip()
     if comment:
         print(element_id, comment)
-        cats()
     return '', NO_CONTENT
 
 

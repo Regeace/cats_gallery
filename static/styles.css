@@ -95,6 +95,10 @@
     border-radius: 3px;
 }
 
+.main__card_leader {
+    outline: 5px inset gold;
+}
+
 .main__image {
     align-self: center;
     flex-grow: 1;
@@ -129,11 +133,8 @@
     background-color: #b5c7eb;
 }
 
-.leader {
-    border: 5px;
-    border-radius: 5px;
-    border-style: inset;
-    border-color: gold;
+.main__button_increase_score_voted {
+    background-color: #e85d5d;
 }
 
 /* Комментарии к картинке */
