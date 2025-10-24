@@ -17,8 +17,15 @@
         <button class="main__button main__button_increase_score" type="submit">+1</button>
     </div>
     <div class="main__сard_comments_container">
-        <div class="main__сard_comments"></div>
-        <input type="text" class="main__сard_comment_input" placeholder="Ваш положительный 30-значный отзыв" autocomplete="off"
+        <div class="main__сard_comments" id="comments_container{{card[0]}}">
+            <script>
+                const comment{{card[0]}} = '{{card[3]}}';
+                comment{{card[0]}}_with_br = comment{{card[0]}}.replace(/&lt;br&gt;/g,'<br>');
+                const comments_element{{card[0]}} = document.getElementById('comments_container{{card[0]}}');
+                comments_element{{card[0]}}.innerHTML += comment{{card[0]}}_with_br;
+            </script>
+            </div>
+        <input type="text" class="main__сard_comment_input" name="input{{card[0]}}" placeholder="Ваш положительный 30-значный отзыв" autocomplete="off"
                maxlength="30">
         <button class="main__сard_send_comment" type="submit">Добавить комментарий</button>
     </div>
