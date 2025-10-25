@@ -28,6 +28,8 @@ def ii():
     context, connection, db_object = form_contex('cats.db', 'ii_db')
     leader_score = max([int(i[2]) for i in context])
     return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
+
+
 #
 #
 @app.route('/cats_voted')
@@ -37,6 +39,7 @@ def cats_voted():
     context, connection, db_object = form_contex('cats.db', 'cats_voted_db')
     leader_score = max([int(i[2]) for i in context])
     return render_template(template_name_or_list='archive_gallery.html', context=context, leader_score=leader_score)
+
 
 @app.route('/change_score', methods=['POST'])
 def change_score():
@@ -53,7 +56,9 @@ def send_comment():
     element_id = data.get('id', '').strip()
     comment = data.get('comment', '').strip()
     if comment:
-        print(element_id, comment)
+        print(comment)
+        comment = '<br>' + str(comment)
+        update_comments(db_object, element_id, connection, comment)
     return '', NO_CONTENT
 
 

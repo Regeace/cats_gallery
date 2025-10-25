@@ -84,7 +84,7 @@ const commentsInput = Array.from(document.querySelectorAll('.main__сard_send_co
         if (!comment) return;
         // Добавляем комментарий на страницу
         const comments_element = element_with_id.querySelector('.main__сard_comments')
-        comments_element.innerHTML += `${comment}<br>`;
+        comments_element.innerHTML += `<br>${comment}`;
         comments_element.scrollTop = comments_element.scrollHeight;
         // Отправляем комментарий в базу данных на сервер
         fetch('/send_comment', {

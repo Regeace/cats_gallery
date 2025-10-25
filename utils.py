@@ -22,3 +22,10 @@ def update_score(database, db_id, connection_object, increment):
         score=database.columns.score + increment)
     connection_object.execute(update_query)
     connection_object.commit()
+
+
+def update_comments(database, db_id, connection_object, comment):
+    update_query = db.update(database).where(database.columns.id == db_id).values(
+        comments=database.columns.comments + comment)
+    connection_object.execute(update_query)
+    connection_object.commit()
