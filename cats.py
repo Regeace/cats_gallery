@@ -46,7 +46,6 @@ def send_comment():
     element_id = data.get('id', '').strip()
     comment = data.get('comment', '').strip()
     if comment:
-        print(comment)
         comment = str(comment) + '<br>'
         update_comments(db_object, element_id, connection, comment)
     return '', NO_CONTENT

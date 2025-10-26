@@ -73,8 +73,26 @@ const score_buttons = Array.from(document.querySelectorAll('.main__button_increa
 
 
 // Функционал отправки комментария
-const commentsInput = Array.from(document.querySelectorAll('.main__сard_send_comment'));
-[].forEach.call(commentsInput, function(element) {
+const commentsInputButtons = Array.from(document.querySelectorAll('.main__сard_send_comment'));
+const commentsInputFields = Array.from(document.querySelectorAll('.main__сard_comment_input'));
+
+// Функция добавления комментария на страницу и отправки на сервер
+function send_and_add_comment(element_with_id, id, comment) {
+    if (!comment) return;
+    // Добавляем комментарий на страницу
+    const comments_element = element_with_id.querySelector('.main__сard_comments')
+    comments_element.innerHTML += `${comment}<br>`;
+    comments_element.scrollTop = comments_element.scrollHeight;
+    // Отправляем комментарий в базу данных на сервер
+    fetch('/send_comment', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({id: id, comment: comment})
+    });
+}
+
+// Отправка комментария по нажатию кнопки
+[].forEach.call(commentsInputButtons, function(element) {
     element.onclick = function() {
         // Находим id карточки
         const element_with_id = element.closest('.main__card');
@@ -82,17 +100,24 @@ const commentsInput = Array.from(document.querySelectorAll('.main__сard_send_co
         // Находим текст комментария
         comment_element = element_with_id.querySelector('.main__сard_comment_input')
         const comment = comment_element.value.trim();
-        if (!comment) return;
-        // Добавляем комментарий на страницу
-        const comments_element = element_with_id.querySelector('.main__сard_comments')
-        comments_element.innerHTML += `${comment}<br>`;
-        comments_element.scrollTop = comments_element.scrollHeight;
-        // Отправляем комментарий в базу данных на сервер
-        fetch('/send_comment', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id: id, comment: comment})
-        });
+        // Добавляем на страницу и отправляем изменения в базу данных
+        send_and_add_comment(element_with_id, id, comment);
         comment_element.value = '';
+    };
+});
+
+// Отправка комментария по нажатию Enter
+[].forEach.call(commentsInputFields, function(element) {
+    element.onkeydown = function(key) {
+        if (key.keyCode === 13) {
+            // Находим id карточки
+            const element_with_id = element.closest('.main__card');
+            const id = element_with_id.id;
+            // Находим текст комментария
+            const comment = element.value.trim();
+            // Добавляем на страницу и отправляем изменения в базу данных
+            send_and_add_comment(element_with_id, id, comment);
+            element.value = '';
+        };
     };
 });
