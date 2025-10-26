@@ -27,8 +27,8 @@
                 comments_element{{card[0]}}.innerHTML += comment{{card[0]}}_with_br;
             </script>
             </div>
-        <input type="text" class="main__сard_comment_input" name="input{{card[0]}}" placeholder="Ваш положительный 30-значный отзыв" autocomplete="off"
-               maxlength="30">
+        <input type="text" class="main__сard_comment_input" name="input{{card[0]}}"
+               placeholder="Ваш положительный 30-значный отзыв" autocomplete="off" maxlength="30">
         <button class="main__сard_send_comment" type="submit">Добавить комментарий</button>
     </div>
 </div>
@@ -36,7 +36,8 @@
 
 {% block modal %}
 <div class="main__modal_decrease_score">
-    <img class="main__modal_img" src="{{url_for('static', filename='cat_decrease_score.jpg')}}" height="746" width="640" alt="Недовольный кот. Нельзя снижать рейтинг">
+    <img class="main__modal_img" src="{{url_for('static', filename='cat_decrease_score.jpg')}}" height="746" width="640"
+         alt="Недовольный кот. Нельзя снижать рейтинг">
     <p>Это кто тут не любит котиков?</p>
     <p>А теперь погладь меня</p>
 </div>

@@ -3,33 +3,31 @@ from utils import *
 
 app = Flask(__name__)
 
-context, connection, db_object, leader_score = None, None, None, None
+context, connection, db_object = None, None, None
 
 
 @app.route('/')
 def cats():
     """Базовая страница галереи с наполнением из базы данных."""
-    global context, connection, db_object, leader_score
-    context, connection, db_object = form_contex('cats.db', 'cats_db')
-    leader_score = max([int(i[2]) for i in context])
+    global context, connection, db_object
+    context, connection, db_object, leader_score = form_context('cats.db', 'cats_db')
     return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
 
 
 @app.route('/ii')
 def ii():
     """Дополнительная страница галереи с наполнением из базы данных."""
-    global context, connection, db_object, leader_score
-    context, connection, db_object = form_contex('cats.db', 'ii_db')
-    leader_score = max([int(i[2]) for i in context])
-    return render_template(template_name_or_list='modal.html', context=context, leader_score=leader_score)
+    global context, connection, db_object
+    context, connection, db_object, leader_score = form_context('cats.db', 'ii_db')
+    return render_template(template_name_or_list='modal_decrease_button.html', context=context,
+                           leader_score=leader_score)
 
 
 @app.route('/cats_voted')
 def cats_voted():
     """Страница галереи с завершённым голосованием с наполнением из базы данных."""
-    global context, connection, db_object, leader_score
-    context, connection, db_object = form_contex('cats.db', 'cats_voted_db')
-    leader_score = max([int(i[2]) for i in context])
+    global context, connection, db_object
+    context, connection, db_object, leader_score = form_context('cats.db', 'cats_voted_db')
     return render_template(template_name_or_list='archive_gallery.html', context=context, leader_score=leader_score)
 
 
@@ -49,7 +47,7 @@ def send_comment():
     comment = data.get('comment', '').strip()
     if comment:
         print(comment)
-        comment = '<br>' + str(comment)
+        comment = str(comment) + '<br>'
         update_comments(db_object, element_id, connection, comment)
     return '', NO_CONTENT
 
