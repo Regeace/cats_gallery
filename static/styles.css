@@ -43,7 +43,13 @@
 
 .page__header {
     display: flex;
+    margin-top: 20px;
+    margin-bottom: 10px;
     padding-bottom: 20px;
+}
+
+.page__header_main_page_reference {
+    display: flex;
 }
 
 .page a {
@@ -58,6 +64,7 @@
 
 .page__name {
     margin-right: 50px;
+    color: #000000;
 }
 
 .page__nav {

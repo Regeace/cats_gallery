@@ -6,12 +6,6 @@ app = Flask(__name__)
 context, connection, db_object, leader_score = None, None, None, None
 
 
-@app.route('/index')
-def index():
-    """Страница для различных тестов."""
-    return render_template(template_name_or_list='index.html')
-
-
 @app.route('/')
 def cats():
     """Базовая страница галереи с наполнением из базы данных."""
@@ -30,8 +24,6 @@ def ii():
     return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
 
 
-#
-#
 @app.route('/cats_voted')
 def cats_voted():
     """Страница галереи с завершённым голосованием с наполнением из базы данных."""
