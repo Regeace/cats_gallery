@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<div class="main__container">
+
 {% for card in context %}
 {% if card[2] == leader_score %}
 <div class="main__card main__card_leader" id="{{card[0]}}">
@@ -14,5 +16,7 @@
     </p>
 </div>
 {% endfor %}
+
+</div>
 
 {% endblock content %}

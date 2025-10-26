@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<div class="main__container">
+
 {% for card in context %}
 {% if card[2] == leader_score %}
 <div class="main__card main__card_leader" id="{{card[0]}}">
@@ -31,5 +33,13 @@
     </div>
 </div>
 {% endfor %}
+
+{% block modal %}
+<div class="main__modal_decrease_score">
+    <img class="main__modal_img" src="{{url_for('static', filename='cat_decrease_score.jpg')}}" height="746" width="640" alt="Недовольный кот. Нельзя снижать рейтинг">
+    <p>Это кто тут не любит котиков?</p>
+    <p>А теперь погладь меня</p>
+</div>
+{% endblock modal %}
 
 {% endblock content %}

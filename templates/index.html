@@ -23,40 +23,18 @@
     </header>
 
     <main class="main">
-        <h1 class="visually-hidden">Галерея для голосования</h1>
-        <div class="main__container">
-            {% block content %}
-            <div class="main__card leader">
-                <img class="main__image" src="{{url_for('static', filename='/cats/1687456031_zhivotnye-9.jpg')}}">
-                <p>Голосов: 100</p>
-                <div class="main__button_container">
-                    <button class="main__button">-1</button>
-                    <button class="main__button">+1</button>
-                </div>
-                <div class="main__сard_comments_container">
-                    <div class="main__сard_comments"></div>
-                    <input type="text">
-                    <button class="main__сard_send_comment">Добавить комментарий</button>
-                </div>
-            </div>
-            <div class="main__card">
-                <img class="main__image" src="{{url_for('static', filename='/cats/1687456031_zhivotnye-9.jpg')}}">
-            </div>
-            <div class="main__card">
-                <img class="main__image" src="{{url_for('static', filename='/cats/1687456031_zhivotnye-9.jpg')}}">
-            </div>
-            {% endblock content %}
-        </div>
+        <h2 class="visually-hidden">Галерея для голосования</h2>
 
-        <div class="main__modal_decrease_score">
-            <img class="main__modal_img" src="{{url_for('static', filename='cat_decrease_score.jpg')}}" height="746" width="640" alt="Недовольный кот. Нельзя снижать рейтинг">
-            <p>Это кто тут не любит котиков?</p>
-            <p>А теперь погладь меня</p>
-        </div>
+        {% block content %}
+
+        {% endblock content %}
+
     </main>
 
     <footer class="page__footer">
-        <a class="page__footer_link" href="https://github.com/Regeace/cats_gallery">Проект котогалереи на github</a>
+        <a class="page__footer_link" href="https://github.com/Regeace/cats_gallery" rel="noopener nofollow" target="_blank">
+            Проект котогалереи на github
+        </a>
     </footer>
 </div>
 

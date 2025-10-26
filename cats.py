@@ -21,7 +21,7 @@ def ii():
     global context, connection, db_object, leader_score
     context, connection, db_object = form_contex('cats.db', 'ii_db')
     leader_score = max([int(i[2]) for i in context])
-    return render_template(template_name_or_list='cats_gallery.html', context=context, leader_score=leader_score)
+    return render_template(template_name_or_list='modal.html', context=context, leader_score=leader_score)
 
 
 @app.route('/cats_voted')
