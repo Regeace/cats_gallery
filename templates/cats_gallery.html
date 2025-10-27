@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="main__container">
+
+{% for card in context %}
+{% if card[2] == leader_score %}
+<div class="main__card main__card_leader" id="{{card[0]}}">
+{% else %}
+<div class="main__card" id="{{card[0]}}">
+{% endif %}
+    <img class="main__image" src="{{url_for('static', filename=card[1])}}">
+    <p class="main__score"><span class="main__score_id_value">Конкурсант <b>{{card[0]}}</b></span>
+        <span class="main__score_votes">Голосов: <b class="main__score_value">{{card[2]}}</b></span>
+    </p>
+    <div class="main__button_container">
+        <button class="main__button main__button_decrease_score" type="button">-1</button>
+        <button class="main__button main__button_increase_score" type="submit">+1</button>
+    </div>
+    <div class="main__сard_comments_container">
+        <div class="main__сard_comments" id="comments_container{{card[0]}}">
+            <script>
+                const comment{{card[0]}} = '{{card[3]}}';
+                comment{{card[0]}}_with_br = comment{{card[0]}}.replace(/&lt;br&gt;/g,'<br>');
+                const comments_element{{card[0]}} = document.getElementById('comments_container{{card[0]}}');
+                comments_element{{card[0]}}.innerHTML += comment{{card[0]}}_with_br;
+            </script>
+            </div>
+        <input type="text" class="main__сard_comment_input" name="input{{card[0]}}"
+               placeholder="Ваш положительный 30-значный отзыв" autocomplete="off" maxlength="30">
+        <button class="main__сard_send_comment" type="submit">Добавить комментарий</button>
+    </div>
+</div>
+{% endfor %}
+
+{% block modal %}
+<div class="main__modal_decrease_score">
+    <img class="main__modal_img" src="{{url_for('static', filename='cat_decrease_score.jpg')}}" height="746" width="640"
+         alt="Недовольный кот. Нельзя снижать рейтинг">
+    <p>Это кто тут не любит котиков?</p>
+    <p>А теперь погладь меня</p>
+</div>
+{% endblock modal %}
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="page" lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кошачья галерея</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
+</head>
+
+<body class="page__body">
+<div class="page__container">
+    <header class="page__header">
+        <a class="page__header_main_page_reference" href="/">
+            <img class="page__logo" src="{{url_for('static', filename='logo_cat.jpg')}}" height="60" width="60" alt="Логотип сайта. Кот">
+            <h1 class="page__name">Котогалерея</h1>
+        </a>
+        <nav class="page__nav">
+            <a class="page__nav_subpage" href="/">Текущая котогалерея</a>
+            <a class="page__nav_subpage" href="/ii">ИИ (идеальное исполнение)</a>
+            <a class="page__nav_subpage" href="/cats_voted">Котогалерея в спячке</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h2 class="visually-hidden">Галерея для голосования</h2>
+
+        {% block content %}
+
+        {% endblock content %}
+
+    </main>
+
+    <footer class="page__footer">
+        <a class="page__footer_link" href="https://github.com/Regeace/cats_gallery" rel="noopener nofollow" target="_blank">
+            Проект котогалереи на github
+        </a>
+    </footer>
+</div>
+
+<script src="{{url_for('static', filename='scripts.js')}}"></script>
+</body>
+</html>

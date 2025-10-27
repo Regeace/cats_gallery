@@ -1,0 +1,11 @@
+{% extends "cats_gallery.html" %}
+
+{% block modal %}
+
+<div class="main__modal_decrease_score">
+    <img class="main__modal_img" src="{{url_for('static', filename='other_pages_decrease_score.jpg')}}"
+         height="600" width="599" alt="Удивлённый кот. Нельзя снижать рейтинг">
+    <p>А теперь погладь меня</p>
+</div>
+
+{% endblock modal %}

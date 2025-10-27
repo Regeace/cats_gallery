@@ -1,0 +1,218 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.page {
+    height: 100%;
+}
+
+.page__body {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-width: 1200px;
+    max-width: 1600px;
+    min-height: 100%;
+    font-family: arial;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.page__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #eaeaea;
+}
+
+.page__header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #eaeaea;
+}
+
+.page__header_main_page_reference {
+    display: flex;
+}
+
+.page a {
+    text-decoration: none;
+}
+
+.page__logo {
+    margin-left: 110px;
+    margin-right: 50px;
+    border-radius: 50%;
+}
+
+.page__name {
+    margin-right: 50px;
+    color: #000000;
+}
+
+.page__nav {
+    display: flex;
+    align-items: center;
+}
+
+.page__nav_subpage {
+    padding: 10px 30px 10px 0;
+}
+
+.main {
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    text-align: center;
+    align-self: center;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px 20px;
+    width: 90%;
+}
+
+/* Карточка с картинкой */
+.main__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #dbcfc8;
+    border-radius: 3px;
+}
+
+.main__card_leader {
+    outline: 5px inset gold;
+}
+
+.main__image {
+    align-self: center;
+    flex-grow: 1;
+    max-width: 380px;
+    object-fit: contain;
+}
+
+.main__score_id_value {
+    padding-right: 19px;
+}
+
+/* Кнопки изменения рейтинга */
+.main__button_container .main__button:first-of-type {
+    margin-right: 30px;
+}
+
+.main__button {
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 3px;
+}
+
+.main__button:hover {
+    cursor: pointer;
+}
+
+.main__button_decrease_score {
+    background-color: #e85d5d;
+}
+
+.main__button_increase_score {
+    background-color: #b5c7eb;
+}
+
+.main__button_increase_score_voted {
+    background-color: #e85d5d;
+}
+
+/* Комментарии к картинке */
+.main__сard_comments_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.main__сard_comments {
+    padding: 5px 10px;
+    margin: 10px;
+    height: 60px;
+    min-width: 100%;
+    border: 1px solid #aaaaaa;
+    overflow-y: scroll;
+    border-radius: 3px;
+    background-color: #daebed;
+    text-align: left;
+}
+
+.main__сard_comment_input {
+    padding: 5px 10px;
+    min-width: 80%;
+    border: 0;
+    border-radius: 3px;
+}
+
+.main__сard_comment_input::placeholder {
+    text-align: center;
+}
+
+.main__сard_send_comment {
+    padding: 5px 10px;
+    margin-top: 5px;
+    min-width: 80%;
+    background-color: #b5c7eb;
+    border-width: 1px;
+    border-radius: 3px;
+}
+
+.main__сard_send_comment:hover {
+    cursor: pointer;
+}
+
+.main__modal_decrease_score {
+    display: none;
+}
+
+/* Модальное окно */
+.modal_show {
+    display: block;
+    position: fixed;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    top: 80px;
+    left: calc(100vw / 2 - 340px);
+}
+
+.page__footer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.page__footer_link {
+    margin: 0 auto;
+}

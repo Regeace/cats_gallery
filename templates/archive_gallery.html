@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="main__container">
+
+{% for card in context %}
+{% if card[2] == leader_score %}
+<div class="main__card main__card_leader" id="{{card[0]}}">
+{% else %}
+<div class="main__card" id="{{card[0]}}">
+{% endif %}
+    <img class="main__image" src="{{url_for('static', filename=card[1])}}">
+    <p class="main__score"><span class="main__score_id_value">Конкурсант <b>{{card[0]}}</b></span>
+        <span class="main__score_votes">Голосов: <b class="main__score_value">{{card[2]}}</b></span>
+    </p>
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock content %}
